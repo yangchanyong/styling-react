@@ -1,3 +1,4 @@
+@import 'utils.scss';
 
 const SassComponent = () => {
   return (
