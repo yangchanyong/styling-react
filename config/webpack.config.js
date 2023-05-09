@@ -1,4 +1,5 @@
-'use strict';
+"use strict";
+
 
 const fs = require('fs');
 const path = require('path');
@@ -516,9 +517,14 @@ module.exports = function (webpackEnv) {
                   modules: {
                     mode: 'icss',
                   },
+                }).concat({
+                loader: require.resolve("sass-loader"),
+                options: {
+                  sassOptions: {
+                    includePaths: [paths.appSrc + "styles"],
+                  },
                 },
-                'sass-loader'
-              ),
+              }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
